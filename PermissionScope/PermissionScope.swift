@@ -21,7 +21,7 @@ public typealias authClosureType      = (_ finished: Bool, _ results: [Permissio
 public typealias cancelClosureType    = (_ results: [PermissionResult]) -> Void
 typealias resultsForConfigClosure     = ([PermissionResult]) -> Void
 
-@objc public class PermissionScope: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate, CBPeripheralManagerDelegate {
+@objcMembers public class PermissionScope: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate, CBPeripheralManagerDelegate {
 
     // MARK: UI Parameters
     
@@ -300,7 +300,7 @@ typealias resultsForConfigClosure     = ([PermissionResult]) -> Void
     - parameter message: Body label's text on the presented dialog when requesting access.
     */
     @objc public func addPermission(_ permission: Permission, message: String) {
-        assert(!message.isEmpty, "Including a message about your permission usage is helpful")
+//        assert(!message.isEmpty, "Including a message about your permission usage is helpful")
         assert(configuredPermissions.count < 3, "Ask for three or fewer permissions at a time")
         assert(configuredPermissions.first { $0.type == permission.type }.isNil, "Permission for \(permission.type) already set")
         
